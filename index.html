@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Stylish Footwears - Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    /* Reset and Base */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #f9f7f7 0%, #dfe9f3 100%);
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(90deg, #0f2027, #203a43, #2c5364);
+      width: 100%;
+      padding: 20px 50px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .container-head {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      color: #fff;
+      font-weight: 700;
+      font-size: 28px;
+      text-transform: uppercase;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.7);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+
+    nav ul li a {
+      color: #cfd8dc;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 8px 15px;
+      border-radius: 30px;
+      transition: all 0.3s ease;
+    }
+
+    nav ul li a:hover,
+    nav ul li a.active {
+      background: #ffd700;
+      color: #2c5364;
+      font-weight: 700;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1400&q=80') no-repeat center/cover;
+      width: 100%;
+      max-width: 1200px;
+      margin: 50px auto 80px;
+      padding: 120px 40px;
+      border-radius: 20px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+      color: white;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(44, 83, 100, 0.6);
+      border-radius: 20px;
+      z-index: 0;
+    }
+
+    .hero > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h2 {
+      font-size: 56px;
+      font-weight: 800;
+      margin-bottom: 15px;
+      text-shadow: 0 4px 8px rgba(0,0,0,0.7);
+      animation: fadeInDown 1s ease forwards;
+    }
+
+    .hero p {
+      font-size: 22px;
+      margin-bottom: 40px;
+      text-shadow: 0 3px 6px rgba(0,0,0,0.5);
+      animation: fadeInUp 1s ease forwards;
+      animation-delay: 0.3s;
+      opacity: 0;
+      animation-fill-mode: forwards;
+    }
+
+    .btn {
+      background: #ffd700;
+      color: #203a43;
+      padding: 16px 40px;
+      font-size: 18px;
+      font-weight: 700;
+      border-radius: 40px;
+      text-decoration: none;
+      box-shadow: 0 6px 15px rgba(255, 215, 0, 0.6);
+      transition: all 0.3s ease;
+      animation: fadeInUp 1s ease forwards;
+      animation-delay: 0.5s;
+      opacity: 0;
+      animation-fill-mode: forwards;
+    }
+
+    .btn:hover {
+      background: #ffc107;
+      transform: translateY(-4px);
+    }
+
+    /* About Section */
+    #about {
+      max-width: 900px;
+      background: #fff;
+      padding: 50px 40px;
+      margin: 0 auto 60px;
+      border-radius: 20px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+      color: #203a43;
+    }
+
+    #about h2 {
+      font-size: 36px;
+      text-align: center;
+      color: #2c5364;
+      text-transform: uppercase;
+      margin-bottom: 25px;
+    }
+
+    #about p {
+      font-size: 18px;
+      line-height: 1.8;
+      margin-bottom: 15px;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #000;
+      color: #cfd8dc;
+      padding: 20px 50px;
+      width: 100%;
+      box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.7);
+      margin-top: auto;
+    }
+
+    .container-footer {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      font-size: 14px;
+    }
+
+    footer nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    footer nav ul li a {
+      color: #cfd8dc;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    footer nav ul li a:hover {
+      color: #ffd700;
+    }
+
+    /* Animations */
+    @keyframes fadeInDown {
+      0% {opacity: 0; transform: translateY(-40px);}
+      100% {opacity: 1; transform: translateY(0);}
+    }
+
+    @keyframes fadeInUp {
+      0% {opacity: 0; transform: translateY(40px);}
+      100% {opacity: 1; transform: translateY(0);}
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h2 {
+        font-size: 36px;
+      }
+
+      .hero p {
+        font-size: 18px;
+      }
+
+      header, footer {
+        padding: 15px 20px;
+      }
+
+      .container-head,
+      .container-footer {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+      }
+
+      nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container-head">
+      <h1>Stylish Footwears for Men's</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="collection.html">Collection</a></li>
+          <li><a href="./cart.html">Cart</a></li>
+          <li><a href="./product.html">Checkout</a></li>
+          <li><a href="./customer details.html">Customer Details</a></li>
+          <li><a href="./about.html">Thankyou</a></li> <!-- Fixed closing tag & link -->
+          <li><a href="./contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h2>Step into Style</h2>
+    <p>Discover the latest trends in footwear.</p>
+    <a href="collection.html" class="btn">Shop Now</a>
+  </section>
+
+  <section id="about">
+    <h2>About Stylish Footwears</h2>
+    <p>
+      At <strong>Stylish Footwears for Men's</strong>, we believe every step should reflect confidence and class.
+      Founded with a passion for design and comfort, we offer high-quality, affordable, and fashionable footwear tailored for modern men.
+    </p>
+    <p>
+      Our mission is to deliver durability, comfort, and modern aesthetics all in one. We stay ahead of trends, ensuring our customers step out with confidence wherever they go.
+      Stylish Footwears is not just a brand — it’s a lifestyle.
+    </p>
+  </section>
+
+  <footer>
+    <div class="container-footer">
+      <p>&copy; 2025 Stylish Footwears for Men's. All rights reserved.</p>
+      <nav>
+        <ul>
+          <!-- You can add footer navigation links here -->
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+</body>
+</html>

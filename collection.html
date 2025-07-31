@@ -1,0 +1,360 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>STYLISH FOOTWEARS - COLLECTION</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style> 
+    /* Reset and base styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #f5f5f5;
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding-bottom: 70px;
+      margin: 0;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(90deg, #0f2027, #203a43, #2c5364);
+      width: 100%;
+      padding: 25px 50px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    header h1 {
+      color: #fff;
+      font-weight: 800;
+      font-size: 36px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+      flex: 1 1 100%;
+      margin-bottom: 15px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(3, auto);
+      gap: 12px 25px;
+      padding-left: 0;
+      flex: 1 1 100%;
+      justify-content: center;
+    }
+
+    nav ul li a {
+      color: #cfd8dc;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 8px 15px;
+      border-radius: 30px;
+      transition: all 0.3s ease;
+      display: inline-block;
+      text-align: center;
+      min-width: 90px;
+    }
+
+    nav ul li a:hover,
+    nav ul li a.active {
+      background: #ffd700;
+      color: #2c5364;
+      font-weight: 700;
+    }
+
+    /* Main container */
+    .container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+      flex-grow: 1;
+    }
+
+    .container h2 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 30px;
+      text-align: center;
+      color: #2c5364;
+      text-transform: uppercase;
+    }
+
+    /* Product grid */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* Fixed 3 columns */
+      gap: 25px;
+    }
+
+    /* Individual product cards */
+    .product-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      padding: 15px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 15px;
+    }
+
+    .product-card h3 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #203a43;
+    }
+
+    .product-card p {
+      font-size: 16px;
+      font-weight: 500;
+      margin-bottom: 15px;
+      color: #555;
+    }
+
+    .btn {
+      background: #ffd700;
+      color: #203a43;
+      padding: 10px 25px;
+      font-weight: 700;
+      font-size: 14px;
+      border-radius: 40px;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(255, 215, 0, 0.6);
+      transition: all 0.3s ease;
+      margin-top: 5px;
+      display: block;
+    }
+
+    .btn:hover {
+      background: #ffc107;
+      box-shadow: 0 6px 18px rgba(255, 193, 7, 0.9);
+      transform: translateY(-3px);
+    }
+
+    /* Footer */
+    footer {
+      background: #000;
+      color: #fff;
+      text-align: center;
+      padding: 20px 0;
+      width: 100%;
+      font-weight: 500;
+      font-size: 14px;
+      box-shadow: 0 -4px 10px rgba(0,0,0,0.7);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      header {
+        padding: 20px;
+      }
+
+      header h1 {
+        font-size: 28px;
+        margin-bottom: 15px;
+      }
+
+      nav ul {
+        grid-template-columns: 1fr;
+        gap: 10px 0;
+        justify-content: center;
+      }
+
+      .container h2 {
+        font-size: 28px;
+      }
+
+      .product-grid {
+        grid-template-columns: 1fr; /* 1 column on small screens */
+      }
+
+      .product-card img {
+        height: 140px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>STYLISH FOOTWEARS FOR MEN'S</h1>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="collection.html" class="active">Collection</a></li>
+      <li><a href="./cart.html">Cart</a></li>
+      <li><a href="./product.html">Checkout</a></li>
+      <li><a href="./customer details.html">Customer Details</a></li>
+      <li><a href="./about.html">Thank You</a></li>
+      <li><a href="./contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main class="container">
+  <h2>SF Collections</h2>
+  <div class="product-grid">
+
+    <div class="product-card">
+      <img src="./10.jpg" alt="NIKE Leather Shoe" />
+      <h3>NIKE Leather Shoe</h3>
+      <p>Price: ₹2580</p>
+      <a href="./cart.html" class="btn">Add to Cart</a>
+      <a href="./product.html" class="btn">Shop Now</a>
+    </div>
+
+    <div class="product-card">
+      <img src="download (3).jpg" alt="PUMA Formal Shoe" />
+      <h3>PUMA Formal Shoe</h3>
+      <p>Price: ₹1090</p>
+      <a href="./cart.html" class="btn">Add to Cart</a>
+      <a href="./product.html" class="btn">Shop Now</a>
+    </div>
+
+    <div class="product-card">
+      <img src="./11.jpg" alt="BATA Shoe" />
+      <h3>BATA Shoe</h3>
+      <p>Price: ₹1980</p>
+      <a href="./cart.html" class="btn">Add to Cart</a>
+      <a href="./product.html" class="btn">Shop Now</a>
+    </div>
+
+    <div class="product-card">
+      <img src="download (5).jpg" alt="Party Wear Shoe" />
+      <h3>Party Wear Shoe</h3>
+      <p>Price: ₹1560</p>
+      <a href="./cart.html" class="btn">Add to Cart</a>
+      <a href="./product.html" class="btn">Shop Now</a>
+    </div>
+
+    <div class="product-card">
+      <img src="1.webp" alt="Taupe Sandals" />
+      <h3>Taupe Sandals</h3>
+      <p>Price: ₹1060</p>
+      <a href="./cart.html" class="btn">Add to Cart</a>
+      <a href="./product.html" class="btn">Shop Now</a>
+    </div>
+
+    <div class="product-card">
+      <img src="./7.webp" alt="Taupe Sandals" />
+      <h3>Taupe Sandals</h3>
+      <p>Price: ₹300</p>
+      <a href="./cart.html" class="btn">Add to Cart</a>
+      <a href="./product.html" class="btn">Shop Now</a>
+    </div>
+
+    <div class="product-card">
+      <img src="2.webp" alt="Casual Sandals" />
+      <h3>Casual Sandals</h3>
+      <p>Price: ₹850</p>
+      <a href="./cart.html" class="btn">Add to Cart</a>
+      <a href="./product.html" class="btn">Shop Now</a>
+    </div>
+
+    <div class="product-card">
+      <img src="./8.webp" alt="PureWhoosh Sandals" />
+      <h3>PureWhoosh Sandals</h3>
+      <p>Price: ₹400</p>
+      <a href="./cart.html" class="btn">Add to Cart</a>
+      <a href="./product.html"" class="btn">Shop Now</a>
+    </div>
+
+    <div class="product-card">
+      <img src="./100.jpg" alt="Breeze Sandals" />
+      <h3>Breeze Sandals</h3>
+      <p>Price: ₹400</p>
+      <a href="./cart.html" class="btn">Add to Cart</a>
+      <a href="./product.html" class="btn">Shop Now</a>
+    </div>
+    
+    <div class="product-card">
+      <img src="./101.webp" alt="Neeman's Breeze Sandals" />
+      <h3>Neeman's Breeze Sandals</h3>
+      <p>Price: ₹400</p>
+      <a href="./cart.html" class="btn">Add to Cart</a>
+      <a href="./product.html" class="btn">Shop Now</a>
+    </div>
+
+    <div class="product-card">
+      <img src="./1022.webp" alt="Neeman's Sandals" />
+      <h3>Neeman's Sandals</h3>
+      <p>Price: ₹400</p>
+      <a href="./cart.html" class="btn">Add to Cart</a>
+      <a href="./product.html" class="btn">Shop Now</a>
+    </div>
+
+    <div class="product-card">
+      <img src="./6.webp" alt=" PureWhoosh Breeze Sandals" />
+      <h3>PureWhoosh Breeze Sandals</h3>
+      <p>Price: ₹400</p>
+      <a href="./cart.html" class="btn">Add to Cart</a>
+      <a href="./product.html" class="btn">Shop Now</a>
+    </div>
+
+    <div class="product-card">
+      <img src="./7.webp" alt=BATA Sandals" />
+      <h3>BATA Sandals</h3>
+      <p>Price: ₹400</p>
+      <a href="./cart.html" class="btn">Add to Cart</a>
+      <a href="./product.html" class="btn">Shop Now</a>
+    </div>
+
+    <div class="product-card">
+      <img src=".//3.webp" alt="Whoosh Breeze " />
+      <h3>Whoosh Breeze</h3>
+      <p>Price: ₹400</p>
+      <a href="./cart.html" class="btn">Add to Cart</a>
+      <a href="./product.html" class="btn">Shop Now</a>
+    </div>
+
+    <div class="product-card">
+      <img src="./4.webp" alt="aragon slippers" />
+      <h3>Paragon slippers</h3>
+      <p>Price: ₹400</p>
+      <a href="./cart.html" class="btn">Add to Cart</a>
+      <a href="./product.html" class="btn">Shop Now</a>
+    </div>
+
+    <!-- Add other product cards as needed -->
+
+  </div>
+</main>
+
+<footer>
+  &copy; 2025 Stylish Footwears. All Rights Reserved.
+</footer>
+
+</body>
+</html>

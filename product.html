@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Invoice Bill Generator - Stylish Footwears</title>
+<style>
+  /* Reset and base styles */
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: #f0f2f5;
+    padding: 30px 0; /* only vertical padding */
+    margin: 0;
+    color: #333;
+  }
+
+  /* Wrapper to constrain page content except header */
+  .page-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 30px; /* horizontal padding */
+  }
+
+  /* Header Styles */
+  header {
+    background: linear-gradient(90deg, #283149, #404b69, #f73859);
+    color: #f0f0f0;
+    padding: 15px 40px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.7);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    margin-bottom: 40px;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 0; /* no rounding on full-width */
+  }
+
+  header .container-head {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  header h1 {
+    font-weight: 700;
+    font-size: 24px;
+    letter-spacing: 1.2px;
+    user-select: none;
+    margin: 0;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+  }
+
+  nav ul li a {
+    color: #a8dadc;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 6px 15px;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+  }
+
+  nav ul li a.active,
+  nav ul li a:hover {
+    background: #f73859;
+    color: #f0f0f0;
+    font-weight: 700;
+    box-shadow: 0 0 12px #f73859;
+  }
+
+  /* Invoice Title */
+  h1.invoice-title {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+  }
+
+  /* Invoice Table */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 25px;
+  }
+
+  th, td {
+    border: 1px solid #ccc;
+    padding: 12px 10px;
+    text-align: center;
+  }
+
+  th {
+    background: #f73859;
+    color: white;
+  }
+
+  input[type="text"], input[type="number"] {
+    width: 90%;
+    padding: 6px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: center;
+  }
+
+  /* Buttons */
+  button {
+    background: #f73859;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+  }
+
+  button:hover {
+    background: #d32f4c;
+  }
+
+  .remove-btn {
+    background: #d32f4c;
+    border: none;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-weight: 700;
+  }
+
+  .remove-btn:hover {
+    background: #b0273f;
+  }
+
+  /* Total Container */
+  .total-container {
+    text-align: right;
+    font-size: 1.2em;
+    font-weight: 700;
+    margin-top: 20px;
+    color: #f73859;
+  }
+
+  /* Shop Now Button */
+  .shop-now-btn {
+    display: block;
+    width: 150px;
+    margin: 30px auto 0 auto;
+    padding: 14px 0;
+    background: #f73859;
+    color: white;
+    font-weight: 700;
+    text-align: center;
+    border-radius: 30px;
+    text-decoration: none;
+    box-shadow: 0 0 12px #f73859;
+    transition: background-color 0.3s ease;
+  }
+  .shop-now-btn:hover {
+    background: #d32f4c;
+    box-shadow: 0 0 15px #d32f4c;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container-head">
+    <h1>STYLISH FOOTWEARS FOR MEN'S</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="collection.html">Collection</a></li>
+        <li><a href="./cart.html">Cart</a></li>
+        <li><a href="./product.html" class="active">Checkout</a></li>
+        <li><a href="./customer details.html">Customer Details</a></li>
+        <li><a href="./about.html">Thankyou</a></li>
+        <li><a href="./contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="page-wrapper">
+  <h1 class="invoice-title">Invoice Bill Generator</h1>
+
+  <table id="invoice-table">
+    <thead>
+      <tr>
+        <th>Item Name</th>
+        <th>Quantity</th>
+        <th>Amount (₹)</th>
+        <th>Subtotal (₹)</th>
+        <th>Remove</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Rows added here dynamically -->
+    </tbody>
+  </table>
+
+  <button id="add-row-btn">Add New Item</button>
+
+  <div class="total-container">
+    Total: ₹<span id="total-amount">0.00</span>
+  </div>
+
+  <a href="./about.html" class="shop-now-btn">Shop Now</a>
+</div>
+
+<script>
+  const invoiceTableBody = document.querySelector('#invoice-table tbody');
+  const totalAmountEl = document.getElementById('total-amount');
+  const addRowBtn = document.getElementById('add-row-btn');
+
+  // Function to create a new row
+  function createRow(itemName = '', quantity = 1, amount = 0) {
+    const row = document.createElement('tr');
+    row.innerHTML = `
+      <td><input type="text" placeholder="Item name" value="${itemName}" required></td>
+      <td><input type="number" min="1" value="${quantity}" required></td>
+      <td><input type="number" min="0" step="0.01" value="${amount}" required></td>
+      <td class="subtotal">0.00</td>
+      <td><button class="remove-btn">X</button></td>
+    `;
+    invoiceTableBody.appendChild(row);
+
+    // Attach event listeners
+    row.querySelectorAll('input').forEach(input => {
+      input.addEventListener('input', calculateTotals);
+    });
+    row.querySelector('.remove-btn').addEventListener('click', () => {
+      row.remove();
+      calculateTotals();
+    });
+  }
+
+  // Calculate subtotals and total
+  function calculateTotals() {
+    let total = 0;
+    invoiceTableBody.querySelectorAll('tr').forEach(row => {
+      const qtyInput = row.children[1].querySelector('input');
+      const amountInput = row.children[2].querySelector('input');
+      const subtotalCell = row.children[3];
+
+      const qty = parseInt(qtyInput.value) || 0;
+      const amount = parseFloat(amountInput.value) || 0;
+      const subtotal = qty * amount;
+      subtotalCell.textContent = subtotal.toFixed(2);
+      total += subtotal;
+    });
+    totalAmountEl.textContent = total.toFixed(2);
+  }
+
+  // Add new row button event
+  addRowBtn.addEventListener('click', () => {
+    createRow();
+  });
+
+  // Initialize with one empty row
+  createRow();
+  calculateTotals();
+</script>
+
+</body>
+</html>
